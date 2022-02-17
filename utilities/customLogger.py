@@ -1,14 +1,11 @@
 import logging
-
-
-class Logger:
+class LoggeGen:
 
     @staticmethod
-    def logi():
-
-        logging.basicConfig(filename=".\\logs\\logs.log",
+    def loggegen():
+        logging.basicConfig(filename=".\\Logs\\examples.log",
                             format='%(asctime)s: %(levelname)s : %(message)s',
-                            datefmt='%m/%d/%Y %I:%M:%S %p'
+                            datefmt='%m/%d/%Y %I:%M:%S  %p'
 
                             )
 

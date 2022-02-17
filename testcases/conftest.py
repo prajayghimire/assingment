@@ -1,8 +1,9 @@
-# kei kura common hunxa jasto lagxa vanne aaune yaha banaune ani kaha kaha chanxa yo conftest bata bahira lane ani talne.
+
 
 import pytest
 
 from selenium import webdriver
+
 
 
 # to run parallel tests on different  browsers
@@ -10,6 +11,8 @@ from selenium import webdriver
 # parallel test ko lagi cahe -pytest xdist  plugin add garnu
 # ani command line bata specify garda no of workers (browsers) push garnu
 # -n=(no of methods)
+#i have not used pytest -xdist
+
 
 #__________________________ REgulary used kura haru yaha bata operate garne __________
 @pytest.fixture

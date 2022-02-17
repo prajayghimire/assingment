@@ -1,23 +1,23 @@
+import logging
 import time
 
-import pytest
-from selenium import webdriver
+# import pytest
+# from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 from pageobjects.Contact import Contact
 from random import randrange
 from utilities.readProperties import ReadConfig
-from utilities.customLogger import Logger
+from utilities.customLogger import LoggeGen
 
 
 class Test_002__Contact:
     # baseURL = "https://WEBO:C~T,e:3c5T]37QMD@webo.dev/dallcon-new/"
     baseURL = ReadConfig.getApplicationURL()
+    logger = LoggeGen.loggegen()
 
-    logger = Logger.logi()
-
-    # link_contactUs_xpath =
     def test_homepagetitle(self, setup):
+        self.logger.info("******Test for Home Page Starting ******")
         self.driver = setup
         self.driver.get(self.baseURL)
         self.driver.maximize_window()
@@ -26,12 +26,13 @@ class Test_002__Contact:
 
         if home_title == "Dallcon":
             assert True
-            self.driver.close()
             self.logger.info("This is Home page")
+            self.driver.close()
+
         else:
             self.driver.save_screenshot(".\\screenshots\\" + "test_homepagetitle.png")
             self.driver.close()
-            self.logger.info("** SOORY Contact Page Unverified**")
+            self.logger.error("** SOORY Contact Page Unverified**")
             assert False
 
     def test_contactpagetitle(self, setup):
@@ -79,13 +80,13 @@ class Test_002__Contact:
         time.sleep(4)
         self.logger.info("**Entering Data on the Contact Form**")
         self.contact_obj = Contact(self.driver)
-        self.contact_obj.fullName("tes Huty")
-        self.contact_obj.companyName("WEBO")
-        self.contact_obj.emailAddress("xyz@gmaile.com")
+        self.contact_obj.fullName("tes Dumpty")
+        self.contact_obj.companyName("Webinar")
+        self.contact_obj.emailAddress("xyzade@gmaile.com")
         self.contact_obj.phoneNumber("9804383838")
         x = randrange(11)
         self.contact_obj.foundUs(x)
-        self.contact_obj.message("NOpe")
+        self.contact_obj.message("NOtLogging")
         self.contact_obj.clickExpert()
         time.sleep(4)
         try:
@@ -109,5 +110,3 @@ class Test_002__Contact:
             self.driver.save_screenshot(".\\screenshots\\" + "test_fillfeilds.png")
             self.driver.close()
             assert False
-
-

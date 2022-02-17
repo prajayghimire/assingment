@@ -6,15 +6,16 @@ from pageobjects.Contact import Contact
 
 from utilities import Excelutlis
 from utilities.readProperties import ReadConfig
-from utilities.customLogger import Logger
+from utilities.customLogger import LoggeGen
 
 
 class Test_001__DATADRIVENContact:
     # baseURL = "https://WEBO:C~T,e:3c5T]37QMD@webo.dev/dallcon-new/"
+
     baseURL = ReadConfig.getApplicationURL()
     path = ".//testdata/contactusdata.xlsx"
 
-    logger = Logger.logi()
+    logger = LoggeGen.loggegen()
 
     # def test_contactpagetitle_ndd(self, setup):
     #     self.logger.info("***** Test_002_Login ******")
@@ -39,6 +40,7 @@ class Test_001__DATADRIVENContact:
     #         assert False
 
     def test_fillfeilds_ddt(self, setup):
+        self.logger.info("____Automated Data Driven Test STarted______")
 
         self.driver = setup
         self.driver.get(self.baseURL)
